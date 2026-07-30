@@ -44,11 +44,24 @@
   # Configure console keymap
   console.keyMap = "pl2";
 
-  services.getty.autologinUser = "lgo";
-
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+        user = "lgo";
+      };
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd '${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop'";
+        user = "greeter";
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
