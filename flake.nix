@@ -7,9 +7,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, dms, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
@@ -18,7 +23,12 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.lgo = import ./home.nix;
+            users.lgo = {
+	      imports = [
+	        dms.homeModules.dank-material-shell
+		./home.nix
+	      ];
+	    };
             backupFileExtension = "backup";
           };
         }
