@@ -14,25 +14,32 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, dms, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.lgo = {
-	      imports = [
-	        dms.homeModules.dank-material-shell
-		./home.nix
-	      ];
-	    };
-            backupFileExtension = "backup";
-          };
-        }
-      ];
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      dms,
+      ...
+    }:
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.lgo = {
+                imports = [
+                  dms.homeModules.dank-material-shell
+                  ./home.nix
+                ];
+              };
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
     };
-  };
 }

@@ -72,6 +72,7 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
