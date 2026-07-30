@@ -1,10 +1,8 @@
-{ pkgs }:
 {
   home = {
     username = "lgo";
     homeDirectory = "/home/lgo";
     stateVersion = "26.05";
-    shell = pkgs.fish;
   };
   programs = {
     bash.enable = true;
