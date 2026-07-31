@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  neovimDotfiles =
-    "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+  neovimDotfiles = "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
 in
 {
   home = {
@@ -57,6 +56,5 @@ in
     };
   };
 
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink neovimDotfiles;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink neovimDotfiles;
 }
