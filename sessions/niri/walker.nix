@@ -29,6 +29,26 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
+    systemd.user.services.walker = {
+      Unit = {
+        Description = "Walker application launcher";
+        After = [
+          "elephant.service"
+          "graphical-session.target"
+        ];
+        Wants = [ "elephant.service" ];
+        PartOf = [ "graphical-session.target" ];
+        ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
+      };
+
+      Service = {
+        ExecStart = "${pkgs.walker}/bin/walker --gapplication-service";
+        Restart = "on-failure";
+      };
+
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
     xdg.configFile = {
       "walker".source =
         config.lib.file.mkOutOfStoreSymlink walkerDotfiles;
