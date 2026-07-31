@@ -14,6 +14,5 @@
   programs = {
     bash.enable = true;
     lazygit.enable = true;
-    fish.enable = true;
   };
 }
