@@ -5,5 +5,5 @@
 Run from the repository root:
 
 ```bash
-sudo nixos-rebuild switch --flake .#boxes
+sudo nixos-rebuild switch --flake .#nixos-boxes
 ```

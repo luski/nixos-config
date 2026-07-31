@@ -43,8 +43,10 @@
             }
           ];
         };
+
+      boxesSystem = mkSystem ./hosts/boxes/default.nix;
     in
     {
-      nixosConfigurations.boxes = mkSystem ./hosts/boxes/default.nix;
+      nixosConfigurations.nixos-boxes = boxesSystem;
     };
 }
