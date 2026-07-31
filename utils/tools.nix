@@ -1,8 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.statix
+  home.packages = with pkgs; [
+    statix
+    nautilus
   ];
 
   programs.zoxide = {
