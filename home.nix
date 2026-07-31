@@ -1,14 +1,25 @@
 { config, pkgs, ... }:
 
 let
-  dotfilesDirectory =
-    "${config.home.homeDirectory}/projects/sandbox/nixos-config/dotfiles";
+  dotfilesDirectory = "${config.home.homeDirectory}/nixos-config/dotfiles";
 in
 {
   home = {
     username = "lgo";
     homeDirectory = "/home/lgo";
     stateVersion = "26.05";
+
+    packages = with pkgs; [
+      fd
+      gcc
+      neovim
+      ripgrep
+    ];
+
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
   };
 
   programs = {
@@ -18,20 +29,9 @@ in
       systemd.enable = true;
     };
 
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      extraPackages = with pkgs; [
-        fd
-        gcc
-        ripgrep
-      ];
-    };
-
     lazygit.enable = true;
     fish.enable = true;
   };
 
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${dotfilesDirectory}/nvim";
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDirectory}/nvim";
 }
