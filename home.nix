@@ -1,5 +1,6 @@
 {
   imports = [
+    ./browsers
     ./sessions/hyprland/home.nix
     ./sessions/niri/home.nix
     ./utils/dms.nix

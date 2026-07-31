@@ -12,6 +12,17 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helium = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -19,6 +30,8 @@
       nixpkgs,
       home-manager,
       dms,
+      helium,
+      zen-browser,
       ...
     }:
     let
@@ -32,6 +45,9 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit helium zen-browser;
+                };
                 users.lgo = {
                   imports = [
                     dms.homeModules.dank-material-shell
