@@ -1,11 +1,8 @@
 {
   imports = [
     ./browsers
-    ./sessions/hyprland/home.nix
-    ./sessions/niri/home.nix
-    ./utils/dms.nix
-    ./utils/kitty.nix
-    ./utils/neovim.nix
+    ./sessions/home.nix
+    ./utils
   ];
 
   home = {

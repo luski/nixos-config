@@ -7,9 +7,6 @@ gestures {
 input {
     keyboard {
         numlock
-        xkb {
-            layout "pl"
-        }
     }
     touchpad {
       tap
@@ -152,6 +149,3 @@ include "custom/binds.kdl"
 include "custom/layout.kdl"
 include "custom/alttab.kdl"
 include "custom/workspaces.kdl"
-
-// DMS Include Configs
-include "dms/binds.kdl"
