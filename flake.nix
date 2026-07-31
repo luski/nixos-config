@@ -45,8 +45,10 @@
         };
 
       boxesSystem = mkSystem ./hosts/boxes/default.nix;
+      lenovoSystem = mkSystem ./hosts/lenovo/default.nix;
     in
     {
       nixosConfigurations.nixos-boxes = boxesSystem;
+      nixosConfigurations.lenovo = lenovoSystem;
     };
 }
