@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./sessions
+  ];
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -28,26 +32,21 @@
   # Configure console keymap
   console.keyMap = "pl2";
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
   programs.fish.enable = true;
 
   services.greetd = {
     enable = true;
-    settings = {
-      initial_session = {
-        command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        user = "lgo";
-      };
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd '${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop'";
-        user = "greeter";
-      };
+
+    settings.default_session = {
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session";
+      user = "greeter";
     };
   };
+
+  # Allow tuigreet to remember the last user and selected session.
+  systemd.tmpfiles.rules = [
+    "d /var/cache/tuigreet 0755 greeter greeter -"
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."lgo" = {
