@@ -22,3 +22,7 @@ desktopSessions = {
 
 Disabled sessions remain configured in the repository but are not installed.
 At least one session must be enabled.
+
+## TODO
+
+- Move the custom Elephant bookmarks module (`menus/bookmarks.lua`) into this configuration and manage `BOOKMARKS_PATH` declaratively.

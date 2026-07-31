@@ -13,6 +13,15 @@ binds {
     Mod+Return hotkey-overlay-title="Open Terminal" {
         spawn-sh "kitty"
     }
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn "walker"
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager Walker" {
+        spawn "walker" "-m" "clipboard"
+    }
+    Mod+E hotkey-overlay-title="Emoji" {
+        spawn "walker" "-m" "symbols"
+    }
     // === Security ===
     Mod+Shift+E {
         quit
