@@ -4,6 +4,10 @@ let
   dotfilesDirectory = "${config.home.homeDirectory}/nixos-config/dotfiles";
 in
 {
+  imports = [
+    ./kitty.nix
+  ];
+
   home = {
     username = "lgo";
     homeDirectory = "/home/lgo";

@@ -81,7 +81,6 @@
     wget
     git
     gh
-    kitty
   ];
 
   # Enable the OpenSSH daemon.
