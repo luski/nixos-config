@@ -21,25 +21,30 @@
       dms,
       ...
     }:
-    {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.lgo = {
-                imports = [
-                  dms.homeModules.dank-material-shell
-                  ./home.nix
-                ];
+    let
+      mkSystem =
+        hostModule:
+        nixpkgs.lib.nixosSystem {
+          modules = [
+            hostModule
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.lgo = {
+                  imports = [
+                    dms.homeModules.dank-material-shell
+                    ./home.nix
+                  ];
+                };
+                backupFileExtension = "backup";
               };
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-      };
+            }
+          ];
+        };
+    in
+    {
+      nixosConfigurations.boxes = mkSystem ./hosts/boxes/default.nix;
     };
 }

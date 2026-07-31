@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
   # Bootloader.
   boot = {
     loader = {
@@ -17,8 +14,6 @@
     # Use latest kernel.
     kernelPackages = pkgs.linuxPackages_latest;
   };
-
-  networking.hostName = "nixos"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
