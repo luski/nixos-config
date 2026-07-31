@@ -1,19 +1,8 @@
 { pkgs, ... }:
 
 {
-  # Bootloader.
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        device = "/dev/sda";
-        useOSProber = true;
-      };
-    };
-
-    # Use latest kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable networking
   networking.networkmanager.enable = true;

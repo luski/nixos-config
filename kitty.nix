@@ -4,7 +4,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    jetbrains-mono
+    nerd-fonts.jetbrains-mono
     victor-mono
   ];
 
@@ -12,7 +12,7 @@
     enable = true;
 
     settings = {
-      font_family = "family=\"JetBrains Mono\" style=ExtraLight";
+      font_family = "family=\"JetBrainsMono Nerd Font\" style=ExtraLight";
       bold_font = "auto";
       italic_font = "Victor Mono Italic";
       bold_italic_font = "Victor Mono Bold Italic";
