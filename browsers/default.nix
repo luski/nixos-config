@@ -9,9 +9,9 @@ let
   system = pkgs.stdenv.hostPlatform.system;
 in
 {
-  home.packages = [
-    pkgs.firefox
-    pkgs.google-chrome
+  home.packages = with pkgs; [
+    firefox
+    google-chrome
     helium.packages.${system}.helium
     zen-browser.packages.${system}.default
   ];

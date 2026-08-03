@@ -11,9 +11,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Expose laptop battery information over D-Bus for desktop widgets.
-  services.upower.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
@@ -36,6 +33,9 @@
   console.keyMap = "pl2";
 
   programs.fish.enable = true;
+
+  # Expose laptop battery information over D-Bus for desktop widgets.
+  services.upower.enable = true;
 
   services.greetd = {
     enable = true;

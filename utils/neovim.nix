@@ -48,6 +48,7 @@ in
       typescript-language-server
       vscode-langservers-extracted
       vue-language-server
+      statix
     ];
 
     sessionVariables = {

@@ -16,7 +16,7 @@
       bold_font = "auto";
       italic_font = "Victor Mono Italic";
       bold_italic_font = "Victor Mono Bold Italic";
-      font_size = 11;
+      font_size = 10;
       enable_ligatures = "yes";
 
       tab_bar_style = "powerline";

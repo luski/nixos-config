@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    statix
     nautilus
+    foot
   ];
 
   programs.zoxide = {
