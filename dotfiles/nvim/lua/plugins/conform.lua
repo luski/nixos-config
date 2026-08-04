@@ -13,14 +13,6 @@ return {
       html = { "prettierd" },
       markdown = { "prettierd" },
       vue = { "prettierd" },
-      kdl = { "kdlfmt" },
-    },
-    formatters = {
-      biome = {
-        condition = function(ctx)
-          return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, path = ctx.dirname })[1] ~= nil
-        end,
-      },
     },
   },
 }

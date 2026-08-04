@@ -154,6 +154,6 @@ include "custom/alttab.kdl"
 include "custom/workspaces.kdl"
 
 // DMS Include Configs
-include "dms/binds.kdl"
-include "dms/layout.kdl"
-include "dms/wpblur.kdl"
+include optional=true "dms/binds.kdl"
+include optional=true "dms/layout.kdl"
+include optional=true "dms/wpblur.kdl"
