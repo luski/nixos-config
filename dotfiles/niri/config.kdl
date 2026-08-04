@@ -149,8 +149,6 @@ recent-windows {
 }
 
 include "custom/binds.kdl"
-include "custom/layout.kdl"
-include "custom/alttab.kdl"
 include "custom/workspaces.kdl"
 
 // DMS Include Configs
