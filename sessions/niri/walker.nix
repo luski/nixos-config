@@ -1,59 +1,87 @@
-{ config, lib, osConfig, pkgs, ... }:
+{ lib, osConfig, ... }:
 
-let
-  walkerDotfiles =
-    "${config.home.homeDirectory}/nixos-config/dotfiles/walker";
-  elephantDotfiles =
-    "${config.home.homeDirectory}/nixos-config/dotfiles/elephant";
-in
 {
   config = lib.mkIf osConfig.desktopSessions.niri.enable {
-    home.packages = [
-      pkgs.elephant
-      pkgs.walker
-    ];
+    services.elephant = {
+      enable = true;
 
-    systemd.user.services.elephant = {
-      Unit = {
-        Description = "Elephant backend for Walker";
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-        ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
-      };
+      settings = {
+        auto_detect_launch_prefix = true;
+        git_on_demand = true;
 
-      Service = {
-        ExecStart = "${pkgs.elephant}/bin/elephant";
-        Restart = "on-failure";
-      };
-
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
-
-    systemd.user.services.walker = {
-      Unit = {
-        Description = "Walker application launcher";
-        After = [
-          "elephant.service"
-          "graphical-session.target"
+        # Package-manager providers are not useful for this Nix-managed setup.
+        ignored_providers = [
+          "archlinuxpkgs"
+          "dnfpackages"
         ];
-        Wants = [ "elephant.service" ];
-        PartOf = [ "graphical-session.target" ];
-        ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
       };
-
-      Service = {
-        ExecStart = "${pkgs.walker}/bin/walker --gapplication-service";
-        Restart = "on-failure";
-      };
-
-      Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    xdg.configFile = {
-      "walker".source =
-        config.lib.file.mkOutOfStoreSymlink walkerDotfiles;
-      "elephant".source =
-        config.lib.file.mkOutOfStoreSymlink elephantDotfiles;
+    services.walker = {
+      enable = true;
+      systemd.enable = true;
+
+      settings = {
+        close_when_open = true;
+        click_to_close = true;
+        single_click_activation = true;
+        selection_wrap = false;
+        theme = "default";
+
+        shell = {
+          layer = "overlay";
+          anchor_top = true;
+          anchor_bottom = true;
+          anchor_left = true;
+          anchor_right = true;
+        };
+
+        columns.symbols = 3;
+
+        placeholders.default = {
+          input = "Search";
+          list = "No Results";
+        };
+
+        providers = {
+          default = [
+            "desktopapplications"
+            "calc"
+            "websearch"
+          ];
+          empty = [ "desktopapplications" ];
+          max_results = 50;
+
+          prefixes = [
+            {
+              prefix = ">";
+              provider = "runner";
+            }
+            {
+              prefix = "/";
+              provider = "files";
+            }
+            {
+              prefix = ".";
+              provider = "symbols";
+            }
+            {
+              prefix = "=";
+              provider = "calc";
+            }
+            {
+              prefix = "@";
+              provider = "websearch";
+            }
+            {
+              prefix = ":";
+              provider = "clipboard";
+            }
+          ];
+
+          clipboard.time_format = "%d.%m. - %H:%M";
+        };
+      };
     };
   };
 }

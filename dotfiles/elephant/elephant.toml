@@ -1,7 +1,0 @@
-# Elephant supplies data to Walker. Runtime data such as clipboard history
-# remains in XDG data/cache directories and is not managed by Home Manager.
-auto_detect_launch_prefix = true
-git_on_demand = true
-
-# These package-manager providers do not apply to NixOS.
-ignored_providers = ["archlinuxpkgs", "dnfpackages"]
