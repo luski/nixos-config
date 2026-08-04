@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helium = {
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +35,7 @@
       nixpkgs,
       home-manager,
       dms,
+      niri,
       helium,
       zen-browser,
       ...
@@ -39,6 +45,7 @@
         hostModule:
         nixpkgs.lib.nixosSystem {
           modules = [
+            niri.nixosModules.niri
             hostModule
             home-manager.nixosModules.home-manager
             {
@@ -51,6 +58,7 @@
                 users.lgo = {
                   imports = [
                     dms.homeModules.dank-material-shell
+                    dms.homeModules.niri
                     ./home.nix
                   ];
                 };
