@@ -25,6 +25,9 @@ binds {
     Mod+Shift+F hotkey-overlay-title="File manager" {
         spawn "nautilus"
     }
+    Mod+B hotkey-overlay-title="Browser" {
+        spawn "zen-beta"
+    }
     // === Security ===
     Mod+Shift+E {
         quit
