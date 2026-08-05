@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./sessions
+    ./modules/nixos/desktop/sessions.nix
   ];
 
   # Use latest kernel.
@@ -33,17 +33,22 @@
   console.keyMap = "pl2";
 
   programs.fish.enable = true;
+  services = {
 
-  # Expose laptop battery information over D-Bus for desktop widgets.
-  services.upower.enable = true;
+    # Expose laptop battery information over D-Bus for desktop widgets.
+    upower.enable = true;
 
-  services.greetd = {
-    enable = true;
+    greetd = {
+      enable = true;
 
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session";
-      user = "greeter";
+      settings.default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session";
+        user = "greeter";
+      };
     };
+
+    # Enable the OpenSSH daemon.
+    openssh.enable = true;
   };
 
   # Allow tuigreet to remember the last user and selected session.
@@ -73,9 +78,6 @@
     git
     gh
   ];
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   nix.settings.experimental-features = [
     "nix-command"

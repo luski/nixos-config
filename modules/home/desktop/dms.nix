@@ -17,7 +17,8 @@ in
     };
 
     # A leading "|" makes these systemd conditions alternatives (OR).
-    systemd.user.services.dms.Unit.ConditionEnvironment =
-      map (session: "|XDG_CURRENT_DESKTOP=${session}") cfg.sessions;
+    systemd.user.services.dms.Unit.ConditionEnvironment = map (
+      session: "|XDG_CURRENT_DESKTOP=${session}"
+    ) cfg.sessions;
   };
 }

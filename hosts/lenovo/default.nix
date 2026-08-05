@@ -8,7 +8,7 @@
 
   desktopSessions = {
     cosmic.enable = false;
-    hyprland.enable = true;
+    hyprland.enable = false;
     niri.enable = true;
   };
 

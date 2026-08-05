@@ -1,10 +1,10 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 {
   imports = [
     ./cosmic.nix
-    ./hyprland
-    ./niri
+    ./hyprland.nix
+    ./niri.nix
   ];
 
   assertions = [
