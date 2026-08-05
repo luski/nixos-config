@@ -49,6 +49,20 @@
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    # Printing
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    printing = {
+      enable = true;
+      drivers = with pkgs; [
+        cups-filters
+        cups-browsed
+      ];
+    };
   };
 
   # Allow tuigreet to remember the last user and selected session.
