@@ -2,6 +2,7 @@
   imports = [
     ../../configuration.nix
     ./hardware-configuration.nix
+    ../../modules/nixos/printing.nix
   ];
 
   networking.hostName = "lenovo";
