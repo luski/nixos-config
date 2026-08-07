@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  neovimDotfiles = "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+  neovimDotfiles = "${config.home.homeDirectory}/nixos-config/modules/home/neovim/config";
 in
 {
   home = {

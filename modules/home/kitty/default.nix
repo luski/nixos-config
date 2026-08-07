@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  kittyDotfiles = "${config.home.homeDirectory}/nixos-config/dotfiles/kitty";
+  kittyDotfiles = "${config.home.homeDirectory}/nixos-config/modules/home/kitty/config";
 in
 {
   fonts.fontconfig.enable = true;
