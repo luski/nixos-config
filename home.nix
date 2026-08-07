@@ -15,7 +15,11 @@
     ./modules/home/desktop/dms.nix
     ./modules/home/desktop/walker.nix
     ./modules/home/dropbox.nix
+    ./modules/home/obsidian.nix
 
+    ./modules/home/graphics/gimp.nix
+    ./modules/home/graphics/inkscape.nix
+    ./modules/home/graphics/krita.nix
   ];
 
   home = {
