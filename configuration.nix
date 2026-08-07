@@ -20,6 +20,9 @@
     openssh.enable = true;
   };
 
+  # Give PipeWire and WirePlumber access to realtime scheduling.
+  security.rtkit.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

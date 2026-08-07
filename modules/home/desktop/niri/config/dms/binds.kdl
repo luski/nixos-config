@@ -64,7 +64,6 @@ binds {
     }
 
     // === Window Management ===
-    Mod+Shift+F { fullscreen-window; }
     Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
 
     // === Monitor Navigation ===
