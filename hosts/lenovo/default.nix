@@ -3,15 +3,10 @@
     ../../configuration.nix
     ./hardware-configuration.nix
     ../../modules/nixos/printing.nix
+    ../../modules/nixos/desktop/niri.nix
   ];
 
   networking.hostName = "lenovo";
-
-  desktopSessions = {
-    cosmic.enable = false;
-    hyprland.enable = false;
-    niri.enable = true;
-  };
 
   boot.loader = {
     systemd-boot.enable = true;

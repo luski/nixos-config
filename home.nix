@@ -13,6 +13,7 @@
     ./modules/home/desktop/niri
     ./modules/home/desktop/hyprland.nix
     ./modules/home/desktop/dms.nix
+    ./modules/home/desktop/walker.nix
     ./modules/home/dropbox.nix
 
   ];

@@ -1,7 +1,7 @@
 { lib, osConfig, ... }:
 
 {
-  config = lib.mkIf osConfig.desktopSessions.hyprland.enable {
+  config = lib.mkIf osConfig.programs.hyprland.enable {
     desktopShell.dms.sessions = [ "Hyprland" ];
   };
 }

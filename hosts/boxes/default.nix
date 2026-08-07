@@ -2,15 +2,11 @@
   imports = [
     ../../configuration.nix
     ./hardware-configuration.nix
+    ../../modules/nixos/desktop/hyprland.nix
+    ../../modules/nixos/desktop/niri.nix
   ];
 
   networking.hostName = "nixos-boxes";
-
-  desktopSessions = {
-    cosmic.enable = false;
-    hyprland.enable = true;
-    niri.enable = true;
-  };
 
   boot.loader.grub = {
     enable = true;

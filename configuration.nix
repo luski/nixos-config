@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./modules/nixos/desktop/sessions.nix
     ./modules/nixos/greetd.nix
     ./modules/nixos/users/lgo.nix
     ./modules/nixos/localization.nix
