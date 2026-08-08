@@ -3,7 +3,7 @@ if [[ -z $BROWSER ]]; then
   exit 1
 fi
 
-CODE=$(walker -I -d)
+CODE=$(walker --dmenu --inputonly --placeholder "Code")
 
 if [[ -z $CODE ]]; then
   exit 0
