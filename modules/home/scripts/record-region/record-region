@@ -8,6 +8,8 @@ open_recording() {
   fi
 }
 
+# Invoked indirectly by the INT/TERM trap below.
+# shellcheck disable=SC2329
 stop_recording() {
   trap - INT TERM
 
