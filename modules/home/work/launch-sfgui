@@ -1,0 +1,14 @@
+if [[ -z $BROWSER ]]; then
+  echo "BROWSER not defined"
+  exit 1
+fi
+
+CODE=$(walker -I -d)
+
+if [[ -z $CODE ]]; then
+  exit 0
+fi
+
+URL="https://starfishstorage.atlassian.net/browse/GUI-${CODE/GUI-/}"
+
+"$BROWSER" "$URL"

@@ -7,12 +7,18 @@
 
 let
   pnpmHome = "${config.home.homeDirectory}/.local/share/pnpm";
+  launch-sfgui = pkgs.writeShellApplication {
+    name = "launch-sfgui";
+    runtimeInputs = [ config.services.walker.package ];
+    text = builtins.readFile ./launch-sfgui;
+  };
 in
 {
   home = {
     packages = with pkgs; [
       fnm
       pnpm
+      launch-sfgui
     ];
 
     sessionPath = [ pnpmHome ];

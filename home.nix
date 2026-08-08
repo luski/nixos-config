@@ -3,7 +3,7 @@
     ./modules/home/neovim
     ./modules/home/kitty
     ./modules/home/fish.nix
-    ./modules/home/development/work.nix
+    ./modules/home/work
     ./modules/home/nautilus.nix
     ./modules/home/foot.nix
     ./modules/home/browsers/firefox.nix
@@ -16,6 +16,7 @@
     ./modules/home/desktop/walker.nix
     ./modules/home/dropbox.nix
     ./modules/home/obsidian.nix
+    ./modules/home/scripts/to-webp
 
     ./modules/home/graphics/gimp.nix
     ./modules/home/graphics/inkscape.nix
