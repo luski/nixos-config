@@ -1,0 +1,18 @@
+PROFILE_DIR="Default"
+REST_ARGS=()
+APP=$1
+shift
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  --profile-directory=*)
+    PROFILE_DIR="${1#*=}"
+    ;;
+  *)
+    REST_ARGS+=("$1")
+    ;;
+  esac
+  shift
+done
+
+exec setsid uwsm-app -- helium-browser --app="$APP" --profile-directory="$PROFILE_DIR" "${REST_ARGS[@]}"

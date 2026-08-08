@@ -1,0 +1,16 @@
+OUT=$(mktemp --tmpdir="${XDG_RUNTIME_DIR:-/tmp}" niri-screenshot.XXXXXX.png)
+
+rm -f "$OUT"
+
+niri msg action screenshot --path "$OUT" >/dev/null || exit 0
+
+for _ in {1..600}; do
+  if [[ -s "$OUT" ]]; then
+    swappy -f "$OUT"
+    exit $?
+  fi
+
+  sleep 0.1
+done
+
+exit 0

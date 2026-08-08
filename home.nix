@@ -18,6 +18,7 @@
     ./modules/home/obsidian.nix
     ./modules/home/scripts/to-webp
     ./modules/home/scripts/record-region
+    ./modules/home/scripts/launch-webapp
     ./modules/home/graphics/gimp.nix
     ./modules/home/graphics/inkscape.nix
     ./modules/home/graphics/krita.nix
