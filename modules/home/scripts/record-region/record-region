@@ -1,0 +1,43 @@
+recordings_dir="$HOME/Videos/recordings"
+output="$recordings_dir/recording-$(date +%Y-%m-%d_%H-%M-%S).mp4"
+recorder_pid=""
+
+open_recording() {
+  if [[ -s "$output" ]]; then
+    nautilus --select "$output" >/dev/null 2>&1 &
+  fi
+}
+
+stop_recording() {
+  trap - INT TERM
+
+  if [[ -n "$recorder_pid" ]] && kill -0 "$recorder_pid" 2>/dev/null; then
+    kill -INT "$recorder_pid" 2>/dev/null || true
+    wait "$recorder_pid" || true
+  fi
+
+  open_recording
+  exit 130
+}
+
+mkdir -p "$recordings_dir"
+
+geometry="$(slurp)" || exit 1
+
+trap stop_recording INT TERM
+
+wl-screenrec \
+  -g "$geometry" \
+  -f "$output" &
+recorder_pid=$!
+
+if wait "$recorder_pid"; then
+  status=0
+else
+  status=$?
+fi
+
+trap - INT TERM
+open_recording
+
+exit "$status"
