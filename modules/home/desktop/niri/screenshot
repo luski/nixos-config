@@ -6,7 +6,7 @@ niri msg action screenshot --path "$OUT" >/dev/null || exit 0
 
 for _ in {1..600}; do
   if [[ -s "$OUT" ]]; then
-    swappy -f "$OUT"
+    satty -f "$OUT"
     exit $?
   fi
 

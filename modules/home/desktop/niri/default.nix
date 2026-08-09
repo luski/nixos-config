@@ -12,7 +12,7 @@ let
     name = "screenshot";
     runtimeInputs = with pkgs; [
       coreutils
-      swappy
+      satty
       osConfig.programs.niri.package
     ];
     text = builtins.readFile ./screenshot;

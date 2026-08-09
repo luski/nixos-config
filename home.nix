@@ -22,6 +22,9 @@
     ./modules/home/graphics/gimp.nix
     ./modules/home/graphics/inkscape.nix
     ./modules/home/graphics/krita.nix
+    ./modules/home/media/loupe.nix
+    ./modules/home/media/totem.nix
+    ./modules/home/media/vlc.nix
   ];
 
   home = {
