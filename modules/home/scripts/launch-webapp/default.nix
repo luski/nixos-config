@@ -12,5 +12,8 @@ let
   };
 in
 {
+  xdg.dataFile."systemd/user/wayland-wm-app-daemon.service".source =
+    "${pkgs.uwsm}/share/systemd/user/wayland-wm-app-daemon.service";
+
   home.packages = [ launch-webapp ];
 }

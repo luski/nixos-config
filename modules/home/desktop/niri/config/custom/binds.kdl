@@ -1,7 +1,12 @@
 binds {
     Mod+N hotkey-overlay-title="nvim" {
-        spawn-sh "kitty -e nvim"
+        spawn-sh "kitty -e nvim";
     }
+
+    Mod+A hotkey-overlay-title="ChatGPT" { 
+      spawn-sh "launch-webapp 'https://chatgpt.com'"; 
+    }
+
     // === System & Overview ===
     Mod+Tab repeat=false {
         toggle-overview

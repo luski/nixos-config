@@ -15,4 +15,4 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-exec setsid uwsm-app -- helium-browser --app="$APP" --profile-directory="$PROFILE_DIR" "${REST_ARGS[@]}"
+exec setsid uwsm-app -- helium --app="$APP" --profile-directory="$PROFILE_DIR" "${REST_ARGS[@]}"
