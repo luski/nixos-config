@@ -156,6 +156,7 @@ include "custom/binds.kdl"
 include "custom/workspaces.kdl"
 
 // DMS Include Configs
+include optional=true "dms/outputs.kdl"
 include optional=true "dms/binds.kdl"
 include optional=true "dms/layout.kdl"
 include optional=true "dms/wpblur.kdl"
