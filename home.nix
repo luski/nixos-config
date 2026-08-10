@@ -10,9 +10,6 @@
     ./modules/home/browsers/google-chrome.nix
     ./modules/home/browsers/helium.nix
     ./modules/home/browsers/zen-browser.nix
-    ./modules/home/desktop/niri
-    ./modules/home/desktop/hyprland.nix
-    ./modules/home/desktop/dms.nix
     ./modules/home/desktop/walker.nix
     ./modules/home/dropbox.nix
     ./modules/home/obsidian.nix

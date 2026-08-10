@@ -2,8 +2,8 @@
   imports = [
     ../../configuration.nix
     ./hardware-configuration.nix
-    ../../modules/nixos/desktop/hyprland.nix
-    ../../modules/nixos/desktop/niri.nix
+    ../../profiles/hyprland.nix
+    ../../profiles/niri.nix
   ];
 
   networking.hostName = "nixos-boxes";
