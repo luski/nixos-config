@@ -7,6 +7,10 @@ binds {
       spawn-sh "launch-webapp 'https://chatgpt.com'"; 
     }
 
+    Mod+Y hotkey-overlay-title="YouTube" { 
+      spawn-sh "launch-webapp 'https://youtube.com'"; 
+    }
+
     // === System & Overview ===
     Mod+Tab repeat=false {
         toggle-overview
