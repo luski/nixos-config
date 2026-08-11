@@ -22,6 +22,11 @@ input {
     focus-follows-mouse max-scroll-amount="10%"
 }
 
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     background-color "transparent"
@@ -74,6 +79,7 @@ layout {
         color "#0007"
     }
 }
+
 layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
