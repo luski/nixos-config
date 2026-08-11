@@ -22,6 +22,7 @@
     ./modules/home/media/loupe.nix
     ./modules/home/media/totem.nix
     ./modules/home/media/vlc.nix
+    ./modules/home/media/spotify.nix
     ./modules/home/keepassxc.nix
   ];
 

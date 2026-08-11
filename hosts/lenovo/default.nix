@@ -4,6 +4,7 @@
     ../../configuration.nix
     ./hardware-configuration.nix
     ../../modules/nixos/printing.nix
+    ../../modules/nixos/virtualisation.nix
     ../../profiles/niri.nix
   ];
 
