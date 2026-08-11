@@ -4,7 +4,6 @@
   ];
 
   home-manager.users.lgo.imports = [
-    ../modules/home/desktop/hyprland.nix
     ../modules/home/desktop/dms.nix
   ];
 }

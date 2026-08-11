@@ -8,7 +8,6 @@
       Description = "Dropbox desktop client";
       After = [
         "graphical-session.target"
-        "dms.service"
       ];
       PartOf = [ "graphical-session.target" ];
     };

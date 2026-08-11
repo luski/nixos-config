@@ -1,13 +1,13 @@
 {
   config,
-  lib,
   osConfig,
   pkgs,
   ...
 }:
 
 let
-  niriDotfiles = "${config.home.homeDirectory}/nixos-config/modules/home/desktop/niri/config";
+  niriConfigFile = "${config.home.homeDirectory}/nixos-config/modules/home/desktop/niri/config/config.kdl";
+  niriConfigCustomizationDir = "${config.home.homeDirectory}/nixos-config/modules/home/desktop/niri/config/custom";
   screenshot = pkgs.writeShellApplication {
     name = "screenshot";
     runtimeInputs = with pkgs; [
@@ -19,10 +19,9 @@ let
   };
 in
 {
-  config = lib.mkIf osConfig.programs.niri.enable {
-    desktopShell.dms.sessions = [ "niri" ];
-    home.packages = [ screenshot ];
+  home.packages = [ screenshot ];
 
-    xdg.configFile."niri".source = config.lib.file.mkOutOfStoreSymlink niriDotfiles;
-  };
+  xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink niriConfigFile;
+  xdg.configFile."niri/custom".source =
+    config.lib.file.mkOutOfStoreSymlink niriConfigCustomizationDir;
 }
