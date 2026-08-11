@@ -16,6 +16,8 @@
     # Expose laptop battery information over D-Bus for desktop widgets.
     upower.enable = true;
 
+    power-profiles-daemon.enable = true;
+
     # Enable the OpenSSH daemon.
     openssh.enable = true;
   };

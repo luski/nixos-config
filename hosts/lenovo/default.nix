@@ -20,4 +20,6 @@
       intel-media-driver
     ];
   };
+
+  hardware.bluetooth.enable = true;
 }
