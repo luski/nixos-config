@@ -1,5 +1,6 @@
 {
-  imports = [
-    ../modules/nixos/desktop/cosmic.nix
-  ];
+  services.desktopManager.cosmic = {
+    enable = true;
+    xwayland.enable = true;
+  };
 }
