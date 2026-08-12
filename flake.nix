@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dcal = {
+      url = "github:AvengeMedia/dankcalendar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helium = {
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +35,7 @@
       nixpkgs,
       home-manager,
       dms,
+      dcal,
       helium,
       zen-browser,
       ...
@@ -46,11 +52,15 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                  inherit helium zen-browser;
+                  inherit
+                    helium
+                    zen-browser
+                    dms
+                    dcal
+                    ;
                 };
                 users.lgo = {
                   imports = [
-                    dms.homeModules.dank-material-shell
                     ./home.nix
                   ];
                 };
